@@ -1,0 +1,10 @@
+import java.math.*;
+ArrayList<SpectralEntry> enteries;
+public class SpectralData{
+	SpectralData(){
+		enteries=new ArrayList();
+	}
+	public void addEntry(BigDecimal wavelength,BigDecimal smooth,BigDecimal unsmooth){
+		entries.put(new SpectralEntry(wavelength,smooth,unsmooth));	
+	}
+}

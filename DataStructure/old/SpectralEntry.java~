@@ -1,0 +1,10 @@
+public class SpectralEntry{
+	public BigDecimal myWaveLength;
+	public BigDecimal mySmooth;
+	public BigDecimal myUnsmooth;
+	SpectralEntry(BigDeciman waveLength,BigDecimal smooth,BigDecimal unsmooth){
+		myWaveLength=wavelength;
+		mySmooth=smooth;
+		myUnSmooth=unsmooth;	
+	}
+}
