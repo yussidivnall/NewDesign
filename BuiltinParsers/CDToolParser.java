@@ -116,9 +116,30 @@ public class CDToolParser{
         }
 
         public boolean ParseSpectralEntry(String line){
+		//CDTool dataformat taken from:
+		//http://cdtools.cryst.bbk.ac.uk/
+		//Column:
+		//Wavelength,CDSignal,HighTensionSignal,CDSmoothSignal,PseudoAbsorbance,StandardDeviationSampleScan,StandardDeviationBaselineScans
                 if(line.matches("^[\\d]+.[\\d]+.*")){ //Line is starting with two numerical values (needs to check it's 7?)
-                    String vals[] = line.split("\\s+");
-                    String wavelength=vals[0];
+			String vals[] = line.split("\\s+");
+                    	String WaveLength=vals[0];
+		    	String CDSignal=vals[1];
+			String HighTension=vals[2];
+			String SmoothSignal=vals[3];
+			String PseudoAbsorbance=vals[4];
+			String SampleStandardDeviation=vals[5];
+			String BaselineStandardDeviation=vals[6];
+			String xmlLine=Parser.StartingTag(Parser.ENTRY_TAG)+
+					Parser.Tag(Parser.WAVELENGTH_TAG,WaveLength)+
+					Parser.Tag(Parser.SIGNAL_TAG,CDSignal)+
+					Parser.Tag(Parser.HIGHTENSION_TAG,HighTension)+
+					Parser.Tag(Parser.SMOOTHSIGNAL_TAG,SmoothSignal)+
+					Parser.Tag(Parser.PSEUDOABSORBANCE_TAG,PseudoAbsorbance)+
+					Parser.Tag(Parser.SAMPLE_STANDARDDEVIATION_TAG,SampleStandardDeviation)+
+					Parser.Tag(Parser.BASELINE_STANDARDDEVIATION_TAG,BaselineStandardDeviation)+
+					Parser.EndingTag(Parser.ENTRY_TAG);
+			spectral_table.add(xmlLine);
+		    /*String wavelength=vals[0];
                     String smooth=vals[1];
                     String unsmooth=vals[2];
                     String v1=vals[3];
@@ -135,6 +156,7 @@ public class CDToolParser{
                             Parser.Tag(Parser.VAL4, v4)+
                             Parser.EndingTag(Parser.ENTRY_TAG);
                     spectral_table.add(xmlLine);
+		    */
                     return true;
                 }
                  return false;

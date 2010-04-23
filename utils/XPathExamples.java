@@ -23,8 +23,10 @@ public class XPathExamples{
 		XPath xpath = XPath.newInstance("//SpectralEntry[WaveLength < //HighWavelength  or  WaveLength > //LowWaveLength]");
 		List list = xpath.selectNodes(doc);
 		Iterator itr = list.iterator();
+		System.out.println("Wavelength\tSmooth\tUnsmooth\tU1\tU2\tU3\tU4");
 		while(itr.hasNext()){
 			Element e = (Element)itr.next();
+			
 			String wl=e.getChild("WaveLength").getTextTrim();
 			String sm=e.getChild("Smooth").getTextTrim();
 			String us=e.getChild("unsmooth").getTextTrim();
@@ -41,18 +43,11 @@ public class XPathExamples{
 		doc = builder.build(fis);
 		fis.close();
 	}
-	public List getList(String tags)throws JDOMException{
-		String expression="//"+tags;
-		XPath xpath= XPath.newInstance(expression);
-		return xpath.selectNodes(doc);
-	}
-	public XPathExamples(){
-		System.out.println("Starting");
+	public XPathExamples(String f){
+		file=f;
 		try{
 			initDocument();
 			printSomeWavelength();
-			List AllWaveLengths = getList("WaveLength");
-			List AllSmooth=getList("Smooth");
 		}catch (IOException ioe){
 			ioe.printStackTrace();
 		}catch (JDOMException je){
@@ -60,6 +55,6 @@ public class XPathExamples{
 		}
 	}
 	public static void main(String args[]){
-		XPathExamples me = new XPathExamples();
+		XPathExamples me = new XPathExamples(args[0]);	
 	}
 }

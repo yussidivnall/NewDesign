@@ -41,16 +41,14 @@ public class Parser{
                 public static final String MRW_TAG="MRW";
            public static final String BODY_TAG="ValidictorBody";
                 public static final String ENTRY_TAG="SpectralEntry";
-                    public static final String WAVELENGTH_TAG="WaveLength";
-                    public static final String SMOOTH_TAG="Smooth";
-                    public static final String UNSMOOTH_TAG="Unsmooth";
-                    /*
-                     * Need to ask Ben what the rest of these represent!
-                     */
-                    public static final String VAL1="Unknown1";
-                    public static final String VAL2="Unknown2";
-                    public static final String VAL3="Unknown3";
-                    public static final String VAL4="Unknown4";
+                   //@TODO FINISH THIS!!! 
+		    public static final String WAVELENGTH_TAG="Wavelength";
+                    public static final String SIGNAL_TAG="Signal";
+                    public static final String HIGHTENSION_TAG="HighTension";
+                    public static final String SMOOTHSIGNAL_TAG="SmoothSignal";
+                    public static final String PSEUDOABSORBANCE_TAG="PseudoAbsorbance";
+                    public static final String SAMPLE_STANDARDDEVIATION_TAG="SampleStandardDeviation";
+                    public static final String BASELINE_STANDARDDEVIATION_TAG="BaselineStandardDeviation";
                 public static final String UNPARSED_TAG="Unparsed";
 	public static String getFileHeader(){
 		return "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
