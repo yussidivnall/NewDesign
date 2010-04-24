@@ -1,9 +1,8 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-
+*Note: The stylesheet report.xsl is in the ../xmls directory, to view the report
+*the xml should be in that directory (or change the getFileHeader() to point to the absolute location of report.xsl)
+*and open the xml with a browser which support stylesheet (firefox/ie should do)
+*/
 /**
  *
  * @author volcan
@@ -14,12 +13,8 @@ public class Parser{
                 public static final String DATE_TAG="Date";
                 public static final String GENERIC_TAG="Generic";
                 public static final String LOW_WAVELENGTH_TAG="LowWavelength";
-//                public static final String INTERVAL_NM_TAG="Interval_nm";
-//                public static final String CUTOFF_NM_TAG="Cutoff_nm";
                 public static final String MACHINE_TAG="Machine";
-//                public static final String DWELLTIME_S_TAG="DwellTime_s";
                 public static final String CELL_ID_TAG="Cell_id";
-//                public static final String PATHLENGTH_CM_TAG="Pathlength_cm";
                 public static final String PROTEIN_NAME_TAG="ProteinType";
                 public static final String CODE_TAG="Code";
                 public static final String HIGH_WAVELENGTH_TAG="HighWavelength";
@@ -32,7 +27,6 @@ public class Parser{
                 public static final String BASELINE_TAG="BaseLine";
                 public static final String SAMPLES_TAG="Samples";
                 public static final String DESCRIPTION_TAG="Description";
-
                 public static final String INTERVAL_TAG="Interval";
                 public static final String CUTOFF_TAG="Cutoff";
                 public static final String DWELLTIME_TAG="DwellTime";
@@ -41,7 +35,6 @@ public class Parser{
                 public static final String MRW_TAG="MRW";
            public static final String BODY_TAG="ValidictorBody";
                 public static final String ENTRY_TAG="SpectralEntry";
-                   //@TODO FINISH THIS!!! 
 		    public static final String WAVELENGTH_TAG="Wavelength";
                     public static final String SIGNAL_TAG="Signal";
                     public static final String HIGHTENSION_TAG="HighTension";
@@ -51,7 +44,8 @@ public class Parser{
                     public static final String BASELINE_STANDARDDEVIATION_TAG="BaselineStandardDeviation";
                 public static final String UNPARSED_TAG="Unparsed";
 	public static String getFileHeader(){
-		return "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
+		return "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"+
+			"<?xml-stylesheet type=\"text/xsl\" href=\"../xpath/report.xsl\"?>\n";
 	}
 
 	public static String Tag(String label,String value){

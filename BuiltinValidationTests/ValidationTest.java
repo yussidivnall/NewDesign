@@ -1,10 +1,17 @@
+//Warning: RUBBISH CODE!!!!
 import java.util.*;
 import java.math.*;
+
+import org.jdom.Document;
 public class ValidationTest{
 	//Two issues here,
 	//First, would only return the y value, not the x,
 	//Second, if the local max/min is equal to the left/right then it will fail to find it 
 	//Get peaks
+
+	
+
+
 	public static List getLocalMaxima(List l){
 		List<BigDecimal> ret = new ArrayList<BigDecimal>();
 		for(int i=1;i<l.size()-1;i++){
@@ -30,5 +37,10 @@ public class ValidationTest{
                 }
                 return ret;
         }
+	public static List getRange(Document d,String field,double min,double max){
+		ArrayList ret;
+		//XPath xpath = XPath.newInstance("//"+field/);
+		return null;
+	}
 
 }
