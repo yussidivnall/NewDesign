@@ -47,16 +47,24 @@ public class UnsmoothDeviationFromZero extends ValidationTest{
 		String wavelength_tag=Parser.WAVELENGTH_TAG;
 		String unsmooth_tag=Parser.SIGNAL_TAG;
 		// "//SpectralEntry[Unsmooth > 0.9 or Unsmooth < -0.9 and Wavelength > 260]"
-		String cond=unsmooth_tag+" > "+deviationFromZero+" or "+unsmooth_tag+" < "+(-deviationFromZero)+" and "+wavelength_tag+" >"+aboveWL;
+		String cond="("+unsmooth_tag+" > "+deviationFromZero+" or "+unsmooth_tag+" < "+(-deviationFromZero)+") and "+wavelength_tag+" >"+aboveWL;
 		String e="//SpectralEntry["+cond+"]";
+		System.out.println("\n\nXPath Expression:"+e+"\n\n");
 		DeviatingElements = (List)XPath.newInstance(e).selectNodes(d);
 	}
 
+
+/*
+*
+*	Mostly for testing
+*
+*/
 	public static void dump(Element e) throws IOException{
 		XMLOutputter xo=new XMLOutputter();
 		xo.output(e,System.out);
+		System.out.println();
 	}
-	
+//Take 3 arguments: xmlfile(String), minimum wavelength(int),deviation from zero(double)
 	public static void main(String args[]){
 		String filename=args[0];
 		int min_wl=new Integer(args[1]);
