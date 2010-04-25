@@ -6,6 +6,8 @@
     <html>
       <body>
 	<h1><xsl:value-of select="//ProteinType"/></h1>
+	<h2>Machine:<xsl:value-of select="/ValidichroData/ValidichroHeader/Machine"/></h2>
+	<h5><xsl:value-of select="/ValidichroData/ValidichroHeader/Description"/></h5>
 	<table border="1">
 		<tr>
 			<th>Wavelength</th>

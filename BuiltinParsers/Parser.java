@@ -43,6 +43,14 @@ public class Parser{
                     public static final String SAMPLE_STANDARDDEVIATION_TAG="SampleStandardDeviation";
                     public static final String BASELINE_STANDARDDEVIATION_TAG="BaselineStandardDeviation";
                 public static final String UNPARSED_TAG="Unparsed";
+	public static String VALIDATION_TESTS_TAG="ValidationTests";
+		public static String TEST_TAG="Test";
+			public static String TEST_RESULT_TAG="TestResult";
+				public static String TEST_STATUS="status"; // attribute : status="n"
+				public static String TEST_STATUS_ACCEPTABLE="acceptable";//<TestResult status="acceptable">
+				public static String TEST_STATUS_FLAGGED="flagged";
+				public static String TEST_STATUS_NA="n/a";
+				public static String TEST_STATUS_REJECTED="rejected";
 	public static String getFileHeader(){
 		return "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"+
 			"<?xml-stylesheet type=\"text/xsl\" href=\"../xpath/report.xsl\"?>\n";

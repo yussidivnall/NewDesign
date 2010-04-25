@@ -1,0 +1,2 @@
+javac -classpath ../externaljars/jaxen-1.1.2.jar:../externaljars/jdom.jar:./:../BuiltinParsers $1".java"
+java -classpath ../externaljars/jaxen-1.1.2.jar:../externaljars/jdom.jar:./:../BuiltinParsers $1 $2 $3 $4
