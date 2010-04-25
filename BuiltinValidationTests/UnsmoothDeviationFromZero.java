@@ -1,3 +1,24 @@
+/*
+Name:UnsmoothDeviationFromZero - Test that the Signal Level above a given wavelength does not deviate from zero by a given amount
+Usage: from shell 
+java UnsmoothDeviationFromZero <XMLFILE> <MINIMUM_WAVELENGTH> <DEVIATION_FROM_ZERO>
+note that JDOM and Jaxen need to be in the classpath, as well as Parser which will become part of this package later
+java -classpath ../externaljars/jaxen-1.1.2.jar:../externaljars/jdom.jar:./:../BuiltinParsers UnsmoothDeviationFromZero  <XMLFILE> <MINIMUM_WAVELENGTH> <DEVIATION_FROM_ZERO>
+should work from current directory
+
+note also that: ../runme.sh UnsmoothDeviationFromZero <XMLFILE> <MINIMUM_WAVELENGTH> <DEVIATION_FROM_ZERO> 
+should recompile and run just the same
+
+From a different class
+UnsmoothDeviationFromZero t1 = new UnsmoothDeviationFromZero(Document xmldoc,int minimum_wavelength,double deviation_limit)
+Element result = t.getTestResult();
+
+Author: Yussi Divnal
+Date: 25/April/2010
+Email: UC.dev.null@Gmail.com
+*/
+
+
 import org.jdom.Document;
 import org.jdom.Element;
 import org.jdom.xpath.XPath;
