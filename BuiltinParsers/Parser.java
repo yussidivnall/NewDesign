@@ -33,7 +33,7 @@ public class Parser{
                 public static final String PATHLENGTH_TAG="PathLength";
                 public static final String CONCENTRATION_TAG="Consentration";
                 public static final String MRW_TAG="MRW";
-           public static final String BODY_TAG="ValidictorBody";
+           public static final String BODY_TAG="ValidichroBody";
                 public static final String ENTRY_TAG="SpectralEntry";
 		    public static final String WAVELENGTH_TAG="Wavelength";
                     public static final String SIGNAL_TAG="Signal";
@@ -53,7 +53,7 @@ public class Parser{
 				public static String TEST_STATUS_REJECTED="rejected";
 	public static String getFileHeader(){
 		return "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"+
-			"<?xml-stylesheet type=\"text/xsl\" href=\"../xpath/report.xsl\"?>\n";
+			"<?xml-stylesheet type=\"text/xsl\" href=\"report.xsl\"?>\n";
 	}
 
 	public static String Tag(String label,String value){

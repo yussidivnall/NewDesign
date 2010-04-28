@@ -1,46 +1,23 @@
-//Warning: RUBBISH CODE!!!!
 import java.util.*;
 import java.math.*;
 
 import org.jdom.Document;
+import org.jdom.Element;
+import org.jdom.xpath.XPath;
+import org.jdom.JDOMException;
 public class ValidationTest{
-	//Two issues here,
-	//First, would only return the y value, not the x,
-	//Second, if the local max/min is equal to the left/right then it will fail to find it 
-	//Get peaks
-
-	
-
-
-	public static List getLocalMaxima(List l){
-		List<BigDecimal> ret = new ArrayList<BigDecimal>();
-		for(int i=1;i<l.size()-1;i++){
-			BigDecimal left_val=(BigDecimal)l.get(i-1);
-			BigDecimal right_val=(BigDecimal)l.get(i+1);
-			BigDecimal val=(BigDecimal)l.get(i);
-			if(left_val.doubleValue()<val.doubleValue() && right_val.doubleValue()<val.doubleValue()){
-				ret.add((BigDecimal)val);
-			}
+	//Adds test result (element) to Document(doc)
+	public static void addTestResultToDocument(Document doc,Element element) throws JDOMException{
+		String e="//"+Parser.VALIDATION_TESTS_TAG;
+		List TestsTag = XPath.newInstance(e).selectNodes(doc);
+		if(TestsTag.size()==0){ // Document doesn't yet have VALIDATION_TESTS_TAG (this is the first test performed on this document)
+			System.out.println("No Tests tag yet, creating!");
+			Element testsRoot = new Element(Parser.VALIDATION_TESTS_TAG);
+			ParsingUtils.addToDocument(doc,"/"+Parser.DATA_TAG,testsRoot);
+			TestsTag = XPath.newInstance(e).selectNodes(doc); // Selects again
 		}
-		return ret;
+		//@ToDo : needs to check that this test with the same values have not already been performed
+		ParsingUtils.addToDocument(doc,"/"+Parser.DATA_TAG+"/"+Parser.VALIDATION_TESTS_TAG,element);
+		
 	}
-	//Get thoughs
-	public static List getLocalMinima(List l){
-                List<BigDecimal> ret = new ArrayList<BigDecimal>();
-                for(int i=1;i<l.size()-1;i++){
-                        BigDecimal left_val=(BigDecimal)l.get(i-1);
-                        BigDecimal right_val=(BigDecimal)l.get(i+1);
-                        BigDecimal val=(BigDecimal)l.get(i);
-                        if(left_val.doubleValue()>val.doubleValue() && right_val.doubleValue()>val.doubleValue()){
-                                ret.add((BigDecimal)val);
-                        }
-                }
-                return ret;
-        }
-	public static List getRange(Document d,String field,double min,double max){
-		ArrayList ret;
-		//XPath xpath = XPath.newInstance("//"+field/);
-		return null;
-	}
-
 }

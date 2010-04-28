@@ -2,16 +2,19 @@
 Name:UnsmoothDeviationFromZero - Test that the Signal Level above a given wavelength does not deviate from zero by a given amount
 Usage: from shell 
 java UnsmoothDeviationFromZero <XMLFILE> <MINIMUM_WAVELENGTH> <DEVIATION_FROM_ZERO>
-note that JDOM and Jaxen need to be in the classpath, as well as Parser which will become part of this package later
+note that JDOM and Jaxen need to be in the classpath, as well as Parser,ParsingUtils and ValidationTest which will become part of this package later
 java -classpath ../externaljars/jaxen-1.1.2.jar:../externaljars/jdom.jar:./:../BuiltinParsers UnsmoothDeviationFromZero  <XMLFILE> <MINIMUM_WAVELENGTH> <DEVIATION_FROM_ZERO>
 should work from current directory
 
-note also that: ../runme.sh UnsmoothDeviationFromZero <XMLFILE> <MINIMUM_WAVELENGTH> <DEVIATION_FROM_ZERO> 
+note also that: ./runme.sh UnsmoothDeviationFromZero <XMLFILE> <MINIMUM_WAVELENGTH> <DEVIATION_FROM_ZERO> 
 should recompile and run just the same
 
 From a different class
 UnsmoothDeviationFromZero t1 = new UnsmoothDeviationFromZero(Document xmldoc,int minimum_wavelength,double deviation_limit)
 Element result = t.getTestResult();
+ValidationTest.addTestResultToDocument(xmldoc,result);
+ParsingUtils.writeXML(xmldoc,filename);
+
 
 Author: Yussi Divnal
 Date: 25/April/2010
@@ -91,12 +94,11 @@ public class UnsmoothDeviationFromZero extends ValidationTest{
 		int min_wl=new Integer(args[1]);
 		double devi=new Double(args[2]);
 		try{
-			FileInputStream fis = new FileInputStream(filename);
-			Document doc = new SAXBuilder().build(fis);
-			fis.close();
+			Document doc=ParsingUtils.getXMLDocument(filename);
 			UnsmoothDeviationFromZero me = new UnsmoothDeviationFromZero(doc,min_wl,devi);
 			Element res=me.getTestResult();
-			dump(res);
+			ValidationTest.addTestResultToDocument(doc,res);
+			ParsingUtils.writeXML(doc,filename);
 		}catch(Exception e){
 			e.printStackTrace();
 		}

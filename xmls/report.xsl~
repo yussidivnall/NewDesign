@@ -32,11 +32,8 @@
 				</tr>
 			</xsl:for-each>
 	</table>
-		<xsl:for-each select="//Test" >
-			Name:<xsl:value-of select="//Test/@name" />
-			Status:<xsl:value-of select="//TestResult/@status" />
-		</xsl:for-each>
-		<h1><xsl:value-of select="//TestStatus/@name" /></h1>
+		<H1>Tests:</H1>
+		<h1><xsl:value-of select="//Test/@name"/></h1>
       </body>
     </html>
   </xsl:template>
