@@ -10,7 +10,7 @@ public class XPathTableExtract{
 	public XPathTableExtract(Document doc,String args[]){
 		//Note: First arg is filename, should fix main() and then change to for(i=0;...)
 		try{
-			XPath xpath = XPath.newInstance("//ValidichroBody/SpectralEntry");
+			XPath xpath = XPath.newInstance("/ValidichroData/ValidichroBody/SpectralEntry");
 			List list = xpath.selectNodes(doc);
 			Iterator itr = list.iterator();
 			//Print labels (tag names)
@@ -19,7 +19,8 @@ public class XPathTableExtract{
 			}
 			while(itr.hasNext()){
 				Element e = (Element)itr.next();
-				System.out.println(e.getText());
+				System.out.println();
+				//System.out.println(e.getText());
 				for(int i=1;i<args.length;i++){
 					String s=e.getChild(args[i]).getTextTrim();
 					Float f = new Float(s);

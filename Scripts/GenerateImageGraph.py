@@ -23,13 +23,11 @@ def makeTempTableFile():
 
 def plot():
 	
-	content="set terminal png x000000 xaaaaaa x100\n";
+	content="set terminal png x000000 xaaaaaa x10\n";
 	content+="set output \""+outputImageFile +"\"\n"
 	content+="plot ";
 	for i in range(len(tags)):
-		if(i==0):
-			print "NONOONONO"+tags[i];
-			continue;
+		if(i==0): continue;
 		content+="\'"+tempTableFileName+"\' using 1:"+str(i+1)+" with lines title \""+tags[i]+"\",";
 	
 	FILE = open(tempGPScript,"w");

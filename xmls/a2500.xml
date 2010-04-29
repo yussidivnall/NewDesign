@@ -1300,12 +1300,6 @@
   </ValidichroBody>
   <Unparsed />
   <ValidationTests>
-    <Test name="UnsmoothDeviationFromZero" min_wavelength="260" limit="0.9">
-      <TestResult status="acceptable" />
-    </Test>
-    <Test name="UnsmoothDeviationFromZero" min_wavelength="260" limit="0.9">
-      <TestResult status="acceptable" />
-    </Test>
     <Test name="UnsmoothDeviationFromZero" min_wavelength="260" limit="0.01">
       <TestResult status="flagged">
         <SpectralEntry>
