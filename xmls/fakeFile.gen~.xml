@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="report.xsl"?>
+
+<ValidichroData>
+	<ValidichroHeader>
+		<PDB>thePdbCode010</PDB>
+	</ValidichroHeader>
+	<ValidichroBody>
+	</ValidichroBody>
+	<Unparsed>
+		ifier        48484
+		
+		
+		
+		
+		
+		
+		
+		here
+		comes
+		thepdbCode232  the pdb
+		there
+		goes
+		
+		here
+		comes
+		the pdb thepdbcode210
+		
+		
+		here
+		comes
+		thepdbCode230  the pdb
+	</Unparsed>
+</ValidichroData>

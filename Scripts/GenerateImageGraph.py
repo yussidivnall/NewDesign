@@ -67,10 +67,11 @@ def MakeTable():
 	return;
 
 def Plot():
+	cols=Columns.split(",");
 	content="set terminal png x000000 xaaaaaa x10\n";
+	content+="set xlabel \""+cols[0]+"\" \n";
         content+="set output \""+Output+"\"\n"
         content+="plot ";
-        cols=Columns.split(",");
 	for i in range(len(cols)):
                 if(i==0): continue;
                 content+="\'"+"/tmp/table_out"+"\' using 1:"+str(i+1)+" with lines title \""+cols[i]+"\",";

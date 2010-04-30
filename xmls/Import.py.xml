@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="report.xsl"?>
+
+<ValidichroData>
+	<ValidichroHeader>
+	</ValidichroHeader>
+	<ValidichroBody>
+	</ValidichroBody>
+	<Unparsed>
+		#!/usr/bin/python
+		import sys;
+		import os;
+		Outdir="../xmls/";
+		for s in sys.argv:
+			elements=s.split("/");
+			en=len(elements);
+			fn=elements[en-1];
+			command = "java -classpath ../BuiltinParsers/ CDToolParser "+s +" "+Outdir+fn+".xml"
+			print command;
+			os.system(command);
+	</Unparsed>
+</ValidichroData>
