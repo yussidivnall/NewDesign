@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Defines the fields in the CDTool .gen files and maps them
+	to the corresponding XML tags
+	<XML_TAG>Field name in data file </XML_TAG>
+-->
+<FileFormatDefinition>
+	<FormatTest>
+	</FormatTest>
+	<ValidichroHeader match="^\D++.*" >
+		<Generic match="^Generic.*" deliminator="\t" value="1">Generic</Generic>
+		<Date match="^Date.*" deliminator="\t" value="1">Date</Date>
+		<ProteinType>Experiment</ProteinType>
+		<Code>Code</Code>
+		<LowWavelength>Low Wavelength</LowWavelength>
+		<HighWavelength>High Wavelength</HighWavelength>
+		<Interval unit="nm">Interval (nm)</Interval>
+		<Cutoff unit="nm">Cut off (nm)</Cutoff>
+	   <SmoothingWindow>Smoothing window</SmoothingWindow>
+   	<Temperature>Temperature</Temperature>
+   	<PDB>PDB</PDB>
+   	<MRW unit="Da">M.R.W. (Da)</MRW>
+   	<CalibrationFile>Calibration file</CalibrationFile>
+   	<Units>Units</Units>
+   	<ZeroedBetween>Zeroed between</ZeroedBetween>
+   	<BaseLine>Baselines</BaseLine>
+   	<Samples>Samples</Samples>
+   	<Description>Description</Description>
+	</ValidichroHeader>
+	<ValidichroBody match="^[0-9]++.*">
+			<SpectralEntry>
+				<Wavelength>#</Wavelength>
+				<Signal>#</Signal>
+				<HighTension>#</HighTension>
+				<SmoothSignal>#</SmoothSignal>
+				<PseudoAbsorbance>#</PseudoAbsorbance>
+				<SampleStandardDeviation>#</SampleStandardDeviation>
+				<BaselineStandardDeviation>#</BaselineStandardDeviation>
+			</SpectralEntry>
+	</ValidichroBody>
+
+</FileFormatDefinition>

@@ -1,3 +1,28 @@
 These are a set of tools for handling experimental data of circular dichrosis.
+At this stage it only handle one type of file (.gen files from a particular Circular Dichrosis Machine)
+
+
+Case Scenario:
+first import the .gen files 
+utils/import.cdtool.sh <Input Gen File> <Output xml file>
+example:
+cd utils
+import.cdtool.sh gen/a2500.gen  xmls/a2500.gen.xml
+
+then you can generate graph images using 'gunplot' (And if you don't have it you should)
+cd Scripts
+GenerateImageGraph.py  -i <XML FILE>  -o  <Graph Image PNG>
+this will generate an image file and display it (using 'display').
+
+then if you have xmlto installed, you can use the xslt transform to display file as html
+xmlto -x <XSLT Transform> -o <Output HTML file> html <XML FILE>
+Example:
+xmlto -x xmls/report2.xsl  html ../../xmls/a2500.gen.xml  -o out.html--skip-validation
+
+If you don't have xmlto (and for some reason you don't want it).
+I recall writing a java xslt transformer, but i'm not sure.. you'll have to find it (and maybe fix it too).
+
+At this stage it does other things, partially... it has some validation tests, but for now you'll just have to look at the code and or write your own...
+it should be fairly easy to adapt the stylesheets to output html+javascript with json and flot charts.
 
 

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+  <xsl:output method="html"/>
+  <xsl:param name="image_dir" select="'images'"/>
+  <xsl:template match="/">
+    <html>
+      <body>
+	<h1><xsl:value-of select="//ProteinType"/></h1>
+	<h2>Machine:<xsl:value-of select="/ValidichroData/ValidichroHeader/Machine"/></h2>
+	<h2>Machine:<xsl:value-of select="/ValidichroData/ValidichroHeader/Date"/></h2>
+	<h5><xsl:value-of select="/ValidichroData/ValidichroHeader/Description"/></h5>
+	<h5>PDB:<xsl:value-of select="/ValidichroData/ValidichroHeader/PDB"/></h5>
+	<table border="1">
+		<tr>
+			<th>Wavelength</th>
+			<th>Signal</th>
+			<th>HighTension</th>
+			<th>SmoothSignal</th>
+			<th>PseudoAbsorbance</th>
+			<th>SampleStandardDeviation</th>
+			<th>BaselineStandardDeviation</th>
+		</tr>
+			<xsl:for-each select="//SpectralEntry"> 
+				<tr>
+					<td><xsl:value-of select="Wavelength"/></td>
+					<td><xsl:value-of select="Signal"/></td>
+					<td><xsl:value-of select="HighTension"/></td>
+					<td><xsl:value-of select="SmoothSignal"/></td>
+ 					<td><xsl:value-of select="PseudoAbsorbance"/></td>
+					<td><xsl:value-of select="SampleStandardDeviation"/></td>
+					<td><xsl:value-of select="BaselineStandardDeviation"/></td>
+				</tr>
+			</xsl:for-each>
+	</table>
+		<xsl:for-each select="//Test" >
+			Name:<xsl:value-of select="//Test/@name" />
+			Status:<xsl:value-of select="//TestResult/@status" />
+		</xsl:for-each>
+		<h1><xsl:value-of select="//TestStatus/@name" /></h1>
+      </body>
+    </html>
+  </xsl:template>
+</xsl:stylesheet>
+

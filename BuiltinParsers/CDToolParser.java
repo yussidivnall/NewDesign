@@ -10,6 +10,9 @@
  */
 import java.io.*;
 import java.util.*;
+import org.jdom.xpath.XPath;
+import org.jdom.Document;
+import org.jdom.Element;
 /*
 *	CDToolParser - Parses CDToolData files as Validichro Data XML files
 *
@@ -139,27 +142,9 @@ public class CDToolParser{
 					Parser.Tag(Parser.BASELINE_STANDARDDEVIATION_TAG,BaselineStandardDeviation)+
 					Parser.EndingTag(Parser.ENTRY_TAG);
 			spectral_table.add(xmlLine);
-		    /*String wavelength=vals[0];
-                    String smooth=vals[1];
-                    String unsmooth=vals[2];
-                    String v1=vals[3];
-                    String v2=vals[4];
-                    String v3=vals[5];
-                    String v4=vals[6];
-                    String xmlLine=Parser.StartingTag(Parser.ENTRY_TAG)+
-                            Parser.Tag(Parser.WAVELENGTH_TAG, wavelength)+
-                            Parser.Tag(Parser.SMOOTH_TAG, smooth)+
-                            Parser.Tag(Parser.UNSMOOTH_TAG, unsmooth)+
-                            Parser.Tag(Parser.VAL1, v1)+
-                            Parser.Tag(Parser.VAL2, v2)+
-                            Parser.Tag(Parser.VAL3, v3)+
-                            Parser.Tag(Parser.VAL4, v4)+
-                            Parser.EndingTag(Parser.ENTRY_TAG);
-                    spectral_table.add(xmlLine);
-		    */
                     return true;
                 }
-                 return false;
+                return false;
         }
 	public void ParseUnrecognisedLines(String l){
 		//This should not be nececarry, only temporary until I deal with all the data

@@ -25,7 +25,6 @@ def Usage():
 			-h or --help	: Print this help message and quit
 	""";
 	return;
-
 def ParseCommandlineArguments():
 	Arguments = sys.argv;
 	global Columns;
